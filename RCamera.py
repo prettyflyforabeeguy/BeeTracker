@@ -7,9 +7,17 @@ import time
 from os import listdir, system
 from os.path import isfile, join
 import random
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(23, GPIO.OUT)
+
+
 try:
     from cv2 import cvtColor, Laplacian, mean, COLOR_RGB2GRAY, CV_16U
-    AUTO_FOCUS = True
+    #AUTO_FOCUS = True
+    AUTO_Focus = False
 except Exception as err: #pylint: disable=broad-except
     #print("ERR: '{}", str(err))
     AUTO_FOCUS = False
@@ -23,6 +31,12 @@ class RCamera:
         self.cam_setup()
 
     #Set up some basic stuff like image size and rotation
+    def led_on(self):
+        GPIO.output(23, GPIO.HIGH)
+
+    def led_off(self):
+        GPIO.output(23, GPIO.LOW)
+
     def cam_setup(self):
         #_camera = PiCamera()
         self.camera.rotation = 0
@@ -47,7 +61,7 @@ class RCamera:
         value = (val << 4) & 0x3ff0
         data1 = (value >> 8) & 0x3f
         data2 = value & 0xf0
-        system("i2cset -y 0 0x0c %d %d" % (data1, data2))
+        system("i2cset -y 1 0x13 %d %d" % (data1, data2))
 
     def auto_focus(self):
         '''
@@ -114,6 +128,5 @@ class RCamera:
             self.camera.capture(file_path)
 
         return [file_name, file_path]
-
 
 

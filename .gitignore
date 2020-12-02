@@ -5,8 +5,11 @@ bin/
 *.log*
 *.tflite
 signature.json
+<<<<<<< HEAD
 .vscode
 tf_models_lite
+=======
+>>>>>>> 378f80f67d84f68204369d79203b32c49b3a2293
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -146,3 +149,4 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+creds.reubin

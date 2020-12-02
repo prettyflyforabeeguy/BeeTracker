@@ -43,7 +43,7 @@ async def register_device():
 async def connect_iotc_device() -> IoTCClient:
     log: logging.Logger = app_logger.get_logger()
     device_client = None
-    asyncio.sleep(0)
+    #asyncio.sleep(0)
     registration_result = await register_device()
     if registration_result.status == 'assigned':
         try:

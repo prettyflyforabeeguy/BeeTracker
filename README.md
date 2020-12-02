@@ -18,8 +18,7 @@ Use the requirements.txt file to install required libraries, using the command: 
 
 ### Hardware wiring
 The following wiring is required:
-- LED light at GPIO 18
-- Motion Sensor at GPIO 17
+- LED l sor at GPIO 17
 - Raspberry Pi Camera connected to the camera port
 
 ![alt text](https://raw.githubusercontent.com/marlinspike/beetracker/master/Raspberry_Pi_board_wiring.jpg)

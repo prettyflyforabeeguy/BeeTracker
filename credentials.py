@@ -25,16 +25,16 @@ class Credentials:
         try:
             with open(self.filepath) as cred_data:
                 credentials = json.load(cred_data)
-                self.device_id =  credentials['device_id']
-                self.id_scope = credentials['id_scope']
+                self.device_id = credentials['device_id']
+                self.longitude = credentials['longitude']
+                self.latitude = credentials['latitude']
+                self.owner_email = credentials['owner_email']
+                self.provisioning_host = credentials['provisioning_host']
                 self.registration_id = credentials['registration_id']
+                self.id_scope = credentials['id_scope']
                 self.symmetric_key = credentials['symmetric_key']
-                self.latitude = credentials.get('latitude', '')
-                self.longitude = credentials.get('longitude', '')
-                self.owner_email = credentials.get('owner_email', '')
-                self.provisioning_host = credentials.get('provisioning_host', '')
-                self.blob_token = credentials.get('blob_token','')
-                self.tf_models = credentials.get('tf_models','')
+                self.blob_token = credentials['blob_token']
+                self.tf_models = credentials['tf_models']
                 self.credential_dict = credentials
         except Exception as e:
             print(f"There was an error reading credentials from: {self.credsFile}")

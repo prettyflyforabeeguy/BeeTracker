@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 *.pb filter=lfs diff=lfs merge=lfs -text
 saved_model.pb filter=lfs diff=lfs merge=lfs -text
+=======
+*.tflite filter=lfs diff=lfs merge=lfs -text
+>>>>>>> Updating TFLite Model
 8f2d1131-b817-4ae6-bdc7-e70c2111a566.tflite filter=lfs diff=lfs merge=lfs -text

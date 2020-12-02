@@ -10,4 +10,3 @@ CredentialInfo = Enum(["device_id", "connection_string", "latitude", "longitude"
                     "owner_email", "blob_hostname", "blob_container",
                        "provisioning_host", "registration_id", "id_scope", "symmetric_key", "blob_token", "tf_models"
                     ])
-

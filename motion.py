@@ -7,6 +7,7 @@ from datetime import datetime
 from utils import CredentialInfo
 from message_payload import MessagePayload
 from tf_classify import TFClassify
+from tf_classify2 import TFClassify2
 import sys, json, logging, argparse, app_logger, asyncio, signal, os
 import device_connect_service
 from iotc.aio import IoTCClient
@@ -27,22 +28,26 @@ credentials: Credentials = Credentials()
 device_client: IoTCClient = None #IoTHubDeviceClient.create_from_connection_string(credentials.get_credentail_info(CredentialInfo.connection_string))
 start_time = datetime.now()
 tfclassifier = TFClassify()
+tfclassifier2 = TFClassify2()
 log:logging.Logger = app_logger.get_logger()
-#print(f"TensorFlow took {datetime.now() - start_time} seconds to load")
 log.info(f"TensorFlow took {datetime.now() - start_time} seconds to load")
+
+modelTier = "tier1"
 _app_settings = AppSettings()
-_app_settings.ensure_label_folders_exist()
+_app_settings.ensure_label_folders_exist(modelTier)
+
+modelTier2 = "tier2"
+_app_settings2 = AppSettings()
+_app_settings.ensure_label_folders_exist(modelTier2)
+
+# Set the trigger word for setting a sub tier model lookup
+_subTierTrigger = _app_settings.get_SubTierTrigger(modelTier)
+_subTierTrigger2 = _app_settings2.get_SubTierTrigger(modelTier2)
+
 _USE_TEST_MODE = False
 _USE_BLOB_STORGE = False
 
-_app_settings = AppSettings()
-#These commands are sent by IoT Central to the device
-_IoT_Commands = {
-    'DownloadModel': iot_commands.iot_download_model,
-    'UploadImages': iot_commands.iot_upload_images,
-    'Blink': iot_commands.iot_blink
-}
-
+#_app_settings = AppSettings()
 #These commands are sent by IoT Central to the device
 _IoT_Commands = {
     'DownloadModel': iot_commands.iot_download_model,
@@ -120,7 +125,7 @@ async def movement_detected():
     picture_classification = tfclassifier.doClassify()
     log.info(f"Image Classification took {datetime.now() - start_time} seconds")
     #Only send telemetry if we see one of the classifications we care about; else, delete the photo
-    valid_labels = _app_settings.get_TFLabels() # Labels classified
+    valid_labels = _app_settings.get_TFLabels(modelTier) # Labels classified
     #print(picture_classification)
     if ((picture_classification[0]['Prediction'] in valid_labels)): #See appsettings.json ["Honeybee", "Invader", "Male Bee"]):
         message = f"{picture_classification[0]}"
@@ -135,6 +140,18 @@ async def movement_detected():
     if ((picture_classification[0]['Confidence'] > 0.60) and _USE_TEST_MODE == False):
         if os.path.exists(picture_name):
             os.remove(picture_name)
+    if (picture_classification[0]['Prediction'] == _subTierTrigger):
+        log.info("Checking model sub tier.")
+        tfclassifier2.reset()
+        tfclassifier2.addImage(picture_name)
+        start_time = datetime.now()
+        picture_classification = tfclassifier2.doClassify()
+        log.info(f"Tier2 Image Classification took {datetime.now() - start_time} seconds")
+        valid_labels = _app_settings.get_TFLabels(modelTier2) # Labels classified
+        if ((picture_classification[0]['Prediction'] in valid_labels)): 
+            message = f"{picture_classification[0]}"
+            await send_iot_message(message)
+        print("Done!")
 
 #No-movement detected method
 async def no_movement_detected():

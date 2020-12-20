@@ -4,10 +4,10 @@ from lobe.Signature import Signature
 import lobe
 from app_settings import AppSettings
 
-modelTier = "tier1"
+modelTier2 = "tier2"
 _app_settings = AppSettings()
 
-sigpath = _app_settings.get_SignaturePath(modelTier)
+sigpath = _app_settings.get_SignaturePath(modelTier2)
 sig:Signature = Signature(sigpath)
 
 #sig:Signature = Signature('./tf_models_lite/tier1/signature.json')
@@ -24,7 +24,7 @@ returns the predicted classification of the images as a DICT array
     'prediction': 'output_prediction_from_TensorFlow'>
 }
 '''
-class TFClassify:
+class TFClassify2:
     def __init__(self):
         self.images = []
         self.results = []
@@ -44,7 +44,7 @@ class TFClassify:
 
     def create_json_result(self, prediction, image_path, confidence="X"):
         calc_val = lambda prediction, item: 1 if prediction == item else 0
-        valid_labels = _app_settings.get_TFLabels(modelTier)
+        valid_labels = _app_settings.get_TFLabels(modelTier2)
         #IoT Central maps these keys to specific values in the JSON Response. Need to match
         dicList = {k: v for (k, v) in zip(valid_labels, valid_labels)}
         result = {

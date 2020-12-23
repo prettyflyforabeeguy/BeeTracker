@@ -1,6 +1,7 @@
 import time
 from lobe import ImageModel
-from lobe.Signature import Signature
+#from lobe.signature import Signature
+from lobe.signature import ImageClassificationSignature
 import lobe
 from app_settings import AppSettings
 
@@ -8,7 +9,8 @@ modelTier2 = "tier2"
 _app_settings = AppSettings()
 
 sigpath = _app_settings.get_SignaturePath(modelTier2)
-sig:Signature = Signature(sigpath)
+#sig:Signature = Signature(sigpath)
+sig: ImageClassificationSignature = ImageClassificationSignature(sigpath)
 
 #sig:Signature = Signature('./tf_models_lite/tier1/signature.json')
 model: ImageModel = ImageModel.load_from_signature(sig)

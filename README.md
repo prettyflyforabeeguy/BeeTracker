@@ -25,15 +25,15 @@ OR<br>
 At the time of writing this we're using Kernel version 5.4
 
 2. Install the OS using [Win32 Disk Imager](https://win32diskimager.org/)
-3. Booth the Pi and setup all initial configuration:
-	a. Keyboard, Language, Timezone, Wifi
-	b. Update the pi (Sudo apt-get update) This might take ~40 - 60min
-	c. Sudo raspi-config
-		i. System Option -> HostName -> BeeTracker
-		ii. Interface Options -> Camera -> Enabled
-		iii. Interface Options -> SSH -> Enabled
-		iv. Interface Options -> I2C -> Enabled
-		v. Finish / Reboot
+3. Booth the Pi and setup all initial configuration:<br>
+	- Keyboard, Language, Timezone, Wifi<br>
+	- Update the pi (Sudo apt-get update) This might take ~40 - 60min<br>
+	- Sudo raspi-config<br>
+		   	i. System Option -> HostName -> BeeTracker<br>
+		   	ii. Interface Options -> Camera -> Enabled<br>
+		  	iii. Interface Options -> SSH -> Enabled<br>
+		  	iv. Interface Options -> I2C -> Enabled<br>
+		  	v. Finish / Reboot<br>
 4. SSH into your new pi
 5. mkdir src
 6. cd src

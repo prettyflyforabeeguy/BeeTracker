@@ -1,5 +1,5 @@
 # Bee Tracker
-> I created this device to support a Bee Health through detecting varroa mites and other invaders.  Given the urgency with the Giant Asian Hornet, I've quickly adapted this to detect them as well.  My friend marlinspike and I wrote the code in python to bring it altogether.  This app uses TensorFlow machine learning models to perform image classification locally at the device. All telemetry data is sent to **Azure IoT Central**.
+> I created this device to support a HoneBee health through detecting varroa mites and other invaders.  Given the urgency with the Giant Asian Hornet, I've quickly adapted this to detect them as well.  My friend marlinspike and I wrote the code in python to bring it altogether.  This app uses TensorFlow machine learning models to perform image classification locally at the device. All telemetry data is sent to **Azure IoT Central**.
 
 ### Required Hardware
  -Raspberry Pi Zero W  (The pi zero is substantially slower for image recognition, but also consumes way less power.)

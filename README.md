@@ -43,8 +43,8 @@ At the time of writing this we're using Kernel version 5.4
 
 ### Beebooth Assembly
 1. Solder the resistor to the Anode side of the led (the slightly longer side) and attach a jumper wire to each end.  I used a little shrink tubing to keep things more tidy but you don't have to do this.
-2. Slide the LED into the opening near the top of the booth.  The idea is to bend the LED bulb to be right next to the camera lens to act as a flash.  Careful not to block the camera lens with the LED.
-![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/tree/master/assembly_imgs/lens_and_led.jpg)
+2. Slide the LED into the opening near the top of the booth.  The idea is to bend the LED bulb to be right next to the camera lens to act as a flash.  Careful not to block the camera lens with the LED.<br>
+![](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/tree/master/assembly_imgs/lens_and_led.jpg)
 
 
 3. Slip the jumper wires through the slot on the lower right hand side of the booth.  Note it's probably easier to first attach the jumper wires to the sensor before slipping them through.(see wiring instructions below)  Use a small zip tie or hot glue to hold the motion sensor in place.

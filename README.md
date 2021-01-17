@@ -44,28 +44,21 @@ At the time of writing this we're using Kernel version 5.4
 ### Beebooth Assembly
 1. Solder the resistor to the Anode side of the led (the slightly longer side) and attach a jumper wire to each end.  I used a little shrink tubing to keep things more tidy but you don't have to do this.
 2. Slide the LED into the opening near the top of the booth.  The idea is to bend the LED bulb to be right next to the camera lens to act as a flash.  Careful not to block the camera lens with the LED.<br>
-![](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/tree/master/assembly_imgs/lens_and_led.jpg)
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/lens_and_led.jpg)
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/led1.jpg)
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/led2.jpg)
 
-
-3. Slip the jumper wires through the slot on the lower right hand side of the booth.  Note it's probably easier to first attach the jumper wires to the sensor before slipping them through.(see wiring instructions below)  Use a small zip tie or hot glue to hold the motion sensor in place.
-
-
-
-
-
+3. Slip the jumper wires through the slot on the lower right hand side of the booth.  Note it's probably easier to first attach the jumper wires to the sensor before slipping them through.(see wiring instructions below)  Use a small zip tie or hot glue to hold the motion sensor in place.<br>
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/sensor_booth1.jpg)
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/sensor_booth2.jpg)
 
 4. Carefully attach the camera ribbon to the camera. Take care to insert the ribbon the proper direction.  Usually the little black slider clip on the camera will be up against the colored strip on the ribbon. 
 5. Insert the Arducam face down into the 3D printed bee booth (lens facing into the booth opening). Note the ribbon should be sticking out toward the square opening (the front) of the bee booth
-
-
-
-
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/boothcamera.jpg)
 
 6. Snap the Raspberry Pi into the 3d printed holder, and slide it into the slot on top of the booth. It should fit all the way forward so the flat pack of the Pi case is flush with the flat back of the bee booth.
-
-
-
-
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/caseattach1.jpg)
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/caseattach2.jpg)
 
 7. Attach the camera ribbon to the Raspberry Pi
 8. Attach a jumper wire to the cathode (short end) from the LED to pin14 (Ground) on the Pi and the anode (long end  with resistor) with a jumper wire to pin16 (GPIO23) on the pi.
@@ -77,8 +70,7 @@ For the VCNL 4010 Sensor:
 3. Attach the blue wire to the SCL pin on the sensor, and connect the other end to pin 5 on the Raspberry Pi (GPIO3)
 4. Attach the Yellow wire to the SDA pin on the sensor, and connect the other end to pin 3 on the Raspberry Pi (GPIO2)
 5. 3vo and INT pins are not used on the motion sensor.  
-
-
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/sensor_wires.jpg)
 
 ### Hardware wiring
 For the VCNL 4040 Sensor:
@@ -87,15 +79,14 @@ For the VCNL 4040 Sensor:
 8. Attach the black wire to the GND pin on the sensor, and connect the other end to 9 on the Raspberry Pi (Ground)
 9. Attach the blue wire to the SCL pin on the sensor, and connect the other end to pin 3 on the Raspberry Pi (GPIO2)
 10. Attach the Yellow wire to the SDA pin on the sensor, and connect the other end to pin 5 on the Raspberry Pi (GPIO3)
-11. Note the blue and yellow wires are in reversed positions compared to using the VCNL4010 sensor.
+11. Note the blue and yellow wires are in reversed positions compared to using the VCNL4010 sensor.<br>
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/vcnl4040.jpg)
 
+Once everything is attached should look something like this:<br>
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/final_setup1.jpg)
 
-
-Once everything is attached should look something like this:
-
-
-
-If you want to add the weather protection cover it should slip right over everything like this:
+If you want to add the weather protection cover it should slip right over everything like this:<br>
+![alt text](https://raw.githubusercontent.com/prettyflyforabeeguy/BeeTracker/master/assembly_imgs/final_setup2.jpg)
 
 ### Azure Resources Required
 - Azure IoT Hub: Your device will need to be enrolled, and it's connection string updated in the **creds.json** file discussed below

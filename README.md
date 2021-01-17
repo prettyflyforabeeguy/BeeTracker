@@ -2,22 +2,22 @@
 > I created this device to support HoneBee health through detecting varroa mites and other invaders.  Given the urgency with the Giant Asian Hornet, I've quickly adapted this to detect them as well.  My friend marlinspike and I wrote the code in python to bring it altogether.  This app uses TensorFlow machine learning models to perform image classification locally at the device. All telemetry data is sent to **Azure IoT Central**.
 
 ### Required Hardware
- -Raspberry Pi Zero W  (The pi zero is substantially slower for image recognition, but also consumes way less power.)
-	-Raspberry Pi Powersupply (for Zero or Pi 3)
-	-Pi Zero camera ribbon
- -Raspberry Pi 3 B+
- -Raspberry Pi 4 (4GB)
-	-Raspberry Pi Powersupply (for Pi 4)
--Arducam 5MP camera
--32 GB SD Card
--Jumper wires for connecting led and VCNL4010 motion sensor
--20 ohm resistor for led
--3v white LED for camera flash
-Motion Sensor:
--Adafruit VCNL4040 motion sensor
-	-Jumper wire for VCNL4040
-OR
--Adafruit VCNL 4010 motion sensor
+ -Raspberry Pi Zero W  (The pi zero is substantially slower for image recognition, but also consumes way less power.)<br>
+	-Raspberry Pi Powersupply (for Zero or Pi 3)<br>
+	-Pi Zero camera ribbon<br>
+ -Raspberry Pi 3 B+<br>
+ -Raspberry Pi 4 (4GB)<br>
+	-Raspberry Pi Powersupply (for Pi 4)<br>
+-Arducam 5MP camera<br>
+-32 GB SD Card<br>
+-Jumper wires for connecting led and VCNL4010 motion sensor<br>
+-20 ohm resistor for led<br>
+-3v white LED for camera flash<br>
+Motion Sensor:<br>
+-Adafruit VCNL4040 motion sensor<br>
+	-Jumper wire for VCNL4040<br>
+OR<br>
+-Adafruit VCNL 4010 motion sensor<br>
 
 ## Getting Started
 ### Software Installation (Raspberry Pi3 & Raspberry Pi4)
@@ -132,16 +132,16 @@ Save this in a file called **creds.json** in the root folder of the application.
 
 ## Download the tensor flow models
 You'll want to download both the Tier1 and Tier2 models and save them in BeeTracker/tier1 and BeeTracker/teir2 accordingly.
-As our community grows, we'll have new image data to further improve the training of these learning models and will publish updated versions.
-TIER1: https://1drv.ms/u/s!Aok2ArNyzY-zvSVIRDXiCsHZr5i3?e=CafR22
-TIER2: https://1drv.ms/u/s!Aok2ArNyzY-zvSbGrdxlGFCBOBW1?e=veEdGo
+As our community grows, we'll have new image data to further improve the training of these learning models and will publish updated versions.<br>
+TIER1: https://1drv.ms/u/s!Aok2ArNyzY-zvSVIRDXiCsHZr5i3?e=CafR22 <br>
+TIER2: https://1drv.ms/u/s!Aok2ArNyzY-zvSbGrdxlGFCBOBW1?e=veEdGo <br>
 
 ## Running the app
 Depending which sensor you're using, run the app using the command:
 ```bash
  python3 motion.py --sensor vcnl4010
  python3 motion.py --sensor vcnl4040
- 
+ ```
 There are options to upload your images to a cloud storage container.  This is disabled by default.
 If you enable this, your images will contribute to future model training.
 

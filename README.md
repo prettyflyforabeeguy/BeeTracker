@@ -21,11 +21,10 @@ OR<br>
 
 ## Getting Started
 ### Software Installation (Raspberry Pi3 & Raspberry Pi4)
-1. Download Latest version of Raspberry Pi OS:
-Operating system images – Raspberry Pi
+1. Download Latest version of [Raspberry Pi OS](https://www.raspberrypi.org/software/operating-systems/):
 At the time of writing this we're using Kernel version 5.4
 
-2. Install the OS using Win32 Disk Imager
+2. Install the OS using [Win32 Disk Imager](https://win32diskimager.org/)
 3. Booth the Pi and setup all initial configuration:
 	a. Keyboard, Language, Timezone, Wifi
 	b. Update the pi (Sudo apt-get update) This might take ~40 - 60min

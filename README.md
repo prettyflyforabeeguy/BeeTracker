@@ -2,22 +2,22 @@
 > I created this device to support HoneBee health through detecting varroa mites and other invaders.  Given the urgency with the Giant Asian Hornet, I've quickly adapted this to detect them as well.  My friend marlinspike and I wrote the code in python to bring it altogether.  This app uses TensorFlow machine learning models to perform image classification locally at the device. All telemetry data is sent to **Azure IoT Central**.
 
 ### Required Hardware
- -Raspberry Pi Zero W  (The pi zero is substantially slower for image recognition, but also consumes way less power.)<br>
-	-Raspberry Pi Powersupply (for Zero or Pi 3)<br>
-	-Pi Zero camera ribbon<br>
- -Raspberry Pi 3 B+<br>
- -Raspberry Pi 4 (4GB)<br>
-	-Raspberry Pi Powersupply (for Pi 4)<br>
--Arducam 5MP camera<br>
--32 GB SD Card<br>
--Jumper wires for connecting led and VCNL4010 motion sensor<br>
--20 ohm resistor for led<br>
--3v white LED for camera flash<br>
-Motion Sensor:<br>
--Adafruit VCNL4040 motion sensor<br>
-	-Jumper wire for VCNL4040<br>
+- [Raspberry Pi Zero W](https://amzn.to/3sxi9aU)  (The pi zero is substantially slower for image recognition, but also consumes way less power.)<br>
+	- [Raspberry Pi Powersupply (for Zero or Pi 3)](https://amzn.to/2XO5uCn)<br>
+	- [Pi Zero camera ribbon](https://amzn.to/3bTHdmN)<br>
+- [Raspberry Pi 3 B+](https://amzn.to/3ilsYYZ)<br>
+- [Raspberry Pi 4 (4GB)](https://amzn.to/3qsTfr5)<br>
+	- [Raspberry Pi Powersupply (for Pi 4)](https://amzn.to/3ilvDSt)<br>
+- [Arducam 5MP camera](https://amzn.to/3oU6hh4)<br>
+- [32 GB SD Card](https://amzn.to/3ing7p7)<br>
+- [Jumper wires for connecting led and VCNL4010 motion sensor](https://amzn.to/39EB0rX)<br>
+- [20 ohm resistor for led](https://amzn.to/3qv0Nty)<br>
+- [3v white LED for camera flash](https://amzn.to/2XNUSTV)<br>
+**Motion Sensor:**<br>
+- [Adafruit VCNL4040 motion sensor](https://www.adafruit.com/product/4161)<br>
+	- [Jumper wire for VCNL4040](https://www.adafruit.com/product/4397)<br>
 OR<br>
--Adafruit VCNL 4010 motion sensor<br>
+- [Adafruit VCNL 4010 motion sensor](https://www.adafruit.com/product/466)<br>
 
 ## Getting Started
 ### Software Installation (Raspberry Pi3 & Raspberry Pi4)

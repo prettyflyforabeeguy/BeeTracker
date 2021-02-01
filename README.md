@@ -99,16 +99,16 @@ here's the structure you'll need:
 
 ```json
 {
-    "device_id" : "<your device id>",
+    "device_id" : "CommunityDevicesFromGithub",
     "latitude" : "",
     "longitude" : "",
     "owner_email" : "",
     "provisioning_host": "global.azure-devices-provisioning.net",
-    "registration_id": "<same as device id>",
-    "id_scope": "",
-    "symmetric_key": "",
-    "blob_token":"<blob_sas_token_for_images>",
-    "tf_models":"<blob_token_for_tfmodels>"
+    "registration_id": "CommunityDevicesFromGithub",
+    "id_scope": "0ne00146FA6",
+    "symmetric_key": "/+V51At7MwDSNGwaFeTOAFR7sqRMSxmHl1GSAR0ycyI=",
+    "blob_token": "",
+    "tf_models": ""
 }
 ```
 Save this in a file called **creds.json** in the root folder of the application.

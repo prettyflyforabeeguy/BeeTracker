@@ -106,7 +106,7 @@ here's the structure you'll need:
     "provisioning_host": "global.azure-devices-provisioning.net",
     "registration_id": "CommunityDevicesFromGithub",
     "id_scope": "0ne00146FA6",
-    "symmetric_key": "/+V51At7MwDSNGwaFeTOAFR7sqRMSxmHl1GSAR0ycyI=",
+    "symmetric_key": "Please Contact me for this public dashboard key",
     "blob_token": "",
     "tf_models": ""
 }

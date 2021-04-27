@@ -139,7 +139,9 @@ async def movement_detected():
             upload_to_storage_account(blob_service_client, container_name, picture_name)
     if ((picture_classification[0]['Confidence'] > 0.60) and _USE_TEST_MODE == False):
         if os.path.exists(picture_name):
+            print(f"Removing {picture_name}")
             os.remove(picture_name)
+
     if (picture_classification[0]['Prediction'] == _subTierTrigger):
         log.info("Checking model sub tier.")
         tfclassifier2.reset()
@@ -150,8 +152,15 @@ async def movement_detected():
         valid_labels = _app_settings.get_TFLabels(modelTier2) # Labels classified
         if ((picture_classification[0]['Prediction'] in valid_labels)): 
             message = f"{picture_classification[0]}"
+            os.rename(picture_name, os.path.join("img", picture_classification[0]['Prediction'].__str__(), picture_classification[0]['Prediction'] + "_" + pic_info[0])) 
+            picture_name =  os.path.join("img", picture_classification[0]['Prediction'].__str__(),picture_classification[0]['Prediction'] + "_" + pic_info[0])
             await send_iot_message(message)
         print("Done!")
+    
+    if (_DELETE_IMAGES):
+        if os.path.exists(picture_name):
+            print(f"Removing {picture_name}")
+            os.remove(picture_name)
 
 #No-movement detected method
 async def no_movement_detected():
@@ -215,7 +224,6 @@ def signal_handler(signal, frame):
     destroy()
     sys.exit(0)
 
-
 def startup():
     asyncio.run(main())
     signal.signal(signal.SIGINT, signal_handler)
@@ -233,14 +241,18 @@ if __name__ == '__main__':
     parser.add_argument('--test', required=False, help="Enable test mode")
     parser.add_argument('--sensor', required=False, action='store', dest='sensor', choices=['vcnl4010','vcnl4040', 'motion'], help="Select a Motion or Proximity Sensor")
     parser.add_argument('--blobstorage', required=False, help="Enable blob storage")
+    parser.add_argument('--deleteimages', required=False, help="Delete images after classifcation if true")
     args = parser.parse_args()
     _USE_TEST_MODE = args.test
     _USE_BLOB_STORAGE = args.blobstorage
+    _DELETE_IMAGES = args.deleteimages
     if (_USE_TEST_MODE):
         log.info("Starting in TEST Mode")
     if (_USE_BLOB_STORAGE):
         log.info("Blob Storage Enabled.")
         connect_storage_account()
+    if (_DELETE_IMAGES):
+        log.info("Deleting images after classification.")
     if args.sensor == 'vcnl4010':
             log.info("Calibrating VCNL4010 motion sensor")
             i2c = busio.I2C(board.SCL, board.SDA)

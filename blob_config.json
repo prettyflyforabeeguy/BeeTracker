@@ -1,6 +1,6 @@
 {
  "blob": {
-    "connection_string": "",
+    "connection_string": "DefaultEndpointsProtocol=https;AccountName=honebeeboothsa01;AccountKey=RBFvsjUpPA8JHUHD8TfrbtPSLn5nxMxdEGrHV3jCc9O/KqrEW14xn/YVBLkhA5l75xocerIrpCL9DWJJQPLLHg==;EndpointSuffix=core.windows.net",
     "tier1_container": "beetracker-tier1"
     }
 }
